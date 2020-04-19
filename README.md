@@ -9,3 +9,5 @@ Systém byl testován a vyvíjen na operačním systému Windows 10.
 této práci verze 3.7 64 bit).
 - Gurobi solver - k jeho instalaci je zapotřebí licence, tato práce využivala
 studentské licence dostupné pro studenty ČVUT.
+
+app.js je startovním souborem celého systému.

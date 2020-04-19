@@ -1,0 +1,27 @@
+<%- include('includes/head.ejs') %>
+</head>
+<%- include('includes/loggedin.ejs') %>
+<%- include('includes/navigation.ejs') %>
+<H1>Timetable manipulation</H1>
+<H2>Select timetable and user:</H1>
+  <select id="userSelect" name="select user">
+    <option selected disabled>Choose User</option>
+    <option idUser="all">All Users</option>
+    <% users.forEach(user => { %>
+    <option idUser="<%= user.idUser %>"><%= user.name%></option>
+    <% }); %>
+  </select>
+  <select id="timetableSelect" name="select timetable">
+    <option selected disabled>Choose Timetable</option>
+    <% timetables.forEach(timetable => { %>
+    <option idTimetable="<%= timetable.idTimetable %>"><%= timetable.name%></option>
+    <% }); %>
+  </select>
+  <button onclick="updateTimetable(document.getElementById('userSelect'), document.getElementById('timetableSelect'))"> Load Table
+  </button>
+  <table id="table1">
+  </table>
+  <table id="table2">
+  </table>
+
+  <%- include('includes/end.ejs') %>

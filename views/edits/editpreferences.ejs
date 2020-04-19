@@ -1,0 +1,23 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<%- include('../includes/loggedin.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<H1>Prefered times settings</H1>
+<H2>Pick user and timetable:</H2>
+<select id="UserSelect" name="select User">
+    <% users.forEach(user => { %>
+    <option idUser="<%= user.idUser %>"><%= user.name%></option>
+    <% }); %>
+</select>
+<select id="timetableSelect" name="select timetable">
+    <% timetables.forEach(timetable => { %>
+    <option id="<%= timetable.idTimetable %>"><%= timetable.name%></option>
+    <% }); %>
+</select>
+<button onclick="updatePreferencestable(document.getElementById('timetableSelect'), document.getElementById('UserSelect'))" >Load timetable</button>
+<p>Pick 1 if you prefer time, or 0 if you do not.</p>
+<table id="table1">
+</table>
+<br>
+<button onclick="updatePreferences(document.getElementById('table1'))">Update preferences</button>
+<%- include('../includes/end.ejs') %>

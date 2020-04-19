@@ -1,0 +1,89 @@
+<div id="mySidenav" class="sidenav">
+    <a id="closebtn" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <% if(typeof user != 'undefined') { %>
+    <a href="/home">Home</a>
+    <a href="/timetable">Timetable</a>
+
+
+    <div class="dropdown" onclick="openDropLeft(this.children[1])">
+        <span>Edit</span>
+        <div id="dropLeftContent1" class="dropdown-content">
+            <a href="/editroomtypes">Edit Room Types</a>
+            <a href="/editroomavailabilities">Edit Room Availability</a>
+            <a href="/editcourses">Edit Courses</a>
+            <a href="/editavailability">Edit User Availability</a>
+            <a href="/editpreferences">Edit User Preferences</a>
+            <a href="/editrooms">Edit Rooms</a>
+
+        </div>
+    </div>
+
+    <div class="dropdown" onclick="openDropLeft(this.children[1])">
+        <span>Add</span>
+        <div id="dropLeftContent2" class="dropdown-content">
+            <a href="/addcourse">Add Course</a>
+            <a href="/addroomtype">Add Room Type</a>
+            <a href="/addroom">Add Room</a>
+            <a href="/addtimetable">Add Timetable</a>
+        </div>
+    </div>
+
+
+    <a href="/tests">Tests</a>
+    <a href="/solver">Solver</a>
+    <a href="/logout">Logout</a>
+    <a href="/about">About</a>
+    <% } else { %>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+    <a href="/about">About</a>
+    <% }%>
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span>
+<script>
+    function openNav() {
+        if (document.getElementById("mySidenav").style.width == "200px") {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("closebtn").style.display = "none";
+            closeAllNavOtherThan(null);
+        }
+        else {
+            document.getElementById("mySidenav").style.width = "200px";
+            document.getElementById("closebtn").style.display = "block";
+        }
+    }
+
+    function openDropLeft(el) {
+        if (el.style.width == "175px") {
+            el.style.width = "0";
+            el.style.display = "none";
+            closeAllNavOtherThan(el);
+        }
+        else {
+            el.style.width = "175px";
+            el.style.display = "block";
+            closeAllNavOtherThan(el);
+        }
+    }
+
+    function closeAllNavOtherThan(nav) {
+        const el1 = document.getElementById("dropLeftContent1");
+        const el2 = document.getElementById("dropLeftContent2");
+        if (el1 != undefined) {
+            if(nav != el1){
+                el1.style.display = "none";
+            } 
+        }
+        if (el2 != undefined) {
+            if(nav != el2){
+                el2.style.display = "none";
+            } 
+        }
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("closebtn").style.display = "none";
+        closeAllNavOtherThan(null);
+    }
+</script>

@@ -1,0 +1,24 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<%- include('../includes/loggedin.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<H1>Available rooms for times settings</H1>
+<H2>Pick timetable:</H2>
+<select id="timetableSelect" name="select timetable">
+    <% timetables.forEach(timetable => { %>
+    <option id="<%= timetable.idTimetable %>"><%= timetable.name%></option>
+    <% }); %>
+</select>
+
+<select id="roomtypeSelect" name="select roomtype">
+    <% roomtypes.forEach(roomtype => { %>
+    <option id="<%= roomtype.idRoomtype %>"><%= roomtype.name%></option>
+    <% }); %>
+</select>
+<button onclick="updateRoomAvailabilitiestable(document.getElementById('timetableSelect'),document.getElementById('roomtypeSelect'))" >Load timetable</button>
+<p>Input number of available rooms in times</p>
+<table id="table1">
+</table>
+<br>
+<button onclick="updateRoomAvailablities(document.getElementById('table1'))">Update Room Availabilities</button>
+<%- include('../includes/end.ejs') %>

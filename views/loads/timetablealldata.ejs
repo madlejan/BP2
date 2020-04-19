@@ -1,0 +1,25 @@
+<table id="table1">
+    <tr>
+      <th>Day</th>
+      <% arrtimeslotstext.forEach(text => { %>
+      <th><%= text %></th>
+      <% }); %>
+    </tr>
+    
+      <% for (let i = 0; i < arrdays.length; i++) { %>
+        <tr>
+            <td><%= arrdays[i] %></td>
+      <%  for (let x = 0; x < numofslotsinaday; x++) { %>
+        <td>  <% let currenttimeslot = (timeslots.filter((timeslot)=> timeslot.order == (x + i * numofslotsinaday))); %>
+          <% let arrCoursesTimeslots = (coursesTimeslots.filter( (coursesTimeslot) => coursesTimeslot.idTimeslot == currenttimeslot[0].idTimeslot)); %>
+          <% if( arrCoursesTimeslots != null)  { %>
+            <%arrCoursesTimeslots.forEach(coursesTimeslot => { %>
+              <%= coursesTimeslot.course.name %>
+              <%}); %>
+          <% }; %>
+         </td> 
+      <% }%>
+    </tr>
+      <%} %>
+  
+  </table>

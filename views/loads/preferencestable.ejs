@@ -1,0 +1,23 @@
+<table id="table1">
+    <tr selectedUserId = <%= selectedUserId %> >
+        <th>Day</th>
+        <% arrtimeslotstext.forEach(text => { %>
+        <th><%= text %></th>
+        <% }); %>
+    </tr>
+    <% for (let i = 0; i < arrdays.length; i++) { %>
+    <tr>
+        <td><%= arrdays[i] %></td>
+        <%  for (let x = 0; x < numofslotsinaday; x++) { %>
+        <td> <% let currenttimeslot = (timeslots.filter((timeslot)=> timeslot.order == (x + i * numofslotsinaday))); %>
+            <% let selectedUserAvail = (userPreferencesAvailablity.filter( (userPreferencesAvailablity) => userPreferencesAvailablity.idTimeslot == currenttimeslot[0].idTimeslot)); %>
+            <% let selectedzero= ''; let selectedone= ''; if(selectedUserAvail[0].valuePreference==0) { selectedzero = 'selected';} else{selectedone  = 'selected'; }; %>
+            <select id="<%= currenttimeslot[0].idTimeslot %>">
+                <option value="0" style="background-color: tomato" <%= selectedzero %>>&nbsp0</option>
+                <option value="1" style="background-color: lightgreen" <%= selectedone %>>&nbsp1</option>
+            </select>
+        </td>
+        <% }%>
+    </tr>
+    <%} %>
+</table>

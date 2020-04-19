@@ -1,0 +1,75 @@
+<table id="table2">
+    <tr>
+        <th>Course Name</th>
+        <th>User</th>
+        <th>Roomtype</th>
+        <th>Room</th>
+        <th>New Timeslot</th>
+        <th>New Room</th>
+        <th>Update</th>
+        <th>Free</th>
+    </tr>
+    <% coursestimeslots.forEach(coursestimeslot => { %>
+        <% if(coursestimeslot.course.roomtype==null){return;} %>
+    <tr id="coursestimeslot<%= coursestimeslot.idCoursesTimeslot %>" idTimetable="<%= idTimetable %>" idUser="<%= idUser %>">
+        <td><%= coursestimeslot.course.name %></td>
+        <td><%if (coursestimeslot.course.user == null) { %>
+            <%- 'null' %>
+
+            <% } else { %>
+            <%= coursestimeslot.course.user.name %>
+            <% } %>
+        </td>
+        <td><%if (coursestimeslot.course.roomtype == null) { %>
+            <%- 'null' %>
+
+            <% } else { %>
+            <%= coursestimeslot.course.roomtype.name %>
+            <% } %>
+        </td>
+        <td><%if (coursestimeslot.room == null) { %>
+            <%- 'null' %>
+
+            <% } else { %>
+            <%= coursestimeslot.room.name %>
+            <% } %>
+        </td>
+        <td>
+            <select name="select new timeslot">
+                <% if (coursestimeslot.idTimeslot == null) { %>
+                    <option selected disabled>Choose Timeslot</option>
+                <% } %>
+                <% timeslots.forEach(timeslot => { %>
+                <option id="<%= timeslot.idTimeslot %>" 
+                        <% if (coursestimeslot.idTimeslot == timeslot.idTimeslot) { %>
+                            <%- 'selected' %>
+                        <% } %>
+                    > <%= timeslot.name%></option>
+                <% }); %>
+            </select>
+        </td>
+        <td>
+                <select name="select new room">
+                    <% if (coursestimeslot.idRoom == null) { %>
+                            <option selected disabled>Choose Room</option>
+                    <% } %>
+                    <% // This line assumes that room.roomtype and coursestimeslot.course.roomtype will never be null %>
+                    <% let filteredrooms = rooms.filter((room) => room.roomtype.idRoomtype ==  coursestimeslot.course.roomtype.idRoomtype) %>
+                    <% filteredrooms.forEach(room => { %>
+                    <option id="<%= room.idRoom %>"
+                            <% if (coursestimeslot.idRoom == room.idRoom) { %>
+                                <%- 'selected' %>
+                            <% } %>
+                        ><%= room.name %></option>
+                    <% }); %>
+                </select>
+            </td>
+        <td>
+                <button type="button" onclick="updateCourseTimeslot('<%= coursestimeslot.idCoursesTimeslot %>', document.querySelector('#coursestimeslot<%= coursestimeslot.idCoursesTimeslot %>')
+                     )">Update </button>
+            </td>
+            <td><button type="button" onclick="freeCourseTimeslot('<%= coursestimeslot.idCoursesTimeslot %>', document.querySelector('#coursestimeslot<%= coursestimeslot.idCoursesTimeslot %>')
+                    )">&#x274C</button></td>
+    </tr>
+    <% }); %>
+</table>

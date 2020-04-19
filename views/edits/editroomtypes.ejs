@@ -1,0 +1,23 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<%- include('../includes/loggedin.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<H1>Roomtypes:</H1>
+<table id="table1">
+    <tr>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    <% roomtypes.forEach(roomtype => { %>
+    <tr id="room<%= roomtype.idRoomtype %>" >
+        <td><input type="text" value="<%= roomtype.name %>"></td>
+        <td>
+            <button roomtypeId='<%= roomtype.idRoomtype %>' type="button" onclick="updateRoomtype('<%= roomtype.idRoomtype %>',document.querySelector('#room<%= roomtype.idRoomtype %>')
+                 )">Update </button>
+        </td>
+        <td><button roomtypeId='<%= roomtype.idRoomtype %>' type="button" onclick="deleteRoomtype(this.getAttribute('roomtypeId'))">&#x274C</button></td>
+    </tr>
+    <% }); %>
+</table>
+<%- include('../includes/end.ejs') %>

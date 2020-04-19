@@ -1,0 +1,16 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<%- include('../includes/loggedin.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<H1>Add new room</h1>
+<form method='post' action='/addroom'>
+<input type='text' name='name' placeholder='Name of new room' required/> <br>
+<select class="inputSelect" id='user' name="idRoomtype">
+    <option selected disabled>Choose Roomtype</option>
+    <% roomtypes.forEach(roomtype => { %>
+    <option value="<%= roomtype.idRoomtype %>"><%= roomtype.name %></option>
+    <% }); %>
+</select><br>
+<input type='submit' value="add room"/> 
+    </form>
+    <%- include('../includes/end.ejs') %>

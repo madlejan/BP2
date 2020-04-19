@@ -1,0 +1,29 @@
+table {
+    box-shadow: 5px 5px 5px 5px lightgray;
+    border-radius: 10px;
+    text-align: center;
+}
+
+table#table1 {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+table#table2 {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+th {
+    background-color: DodgerBlue;
+    font-family: "helvetica", Arial, Verdana, Sans-serif;
+    color: white;
+    border-radius: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #edeaea;
+    border-radius: 10px;
+}

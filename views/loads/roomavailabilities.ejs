@@ -1,0 +1,21 @@
+<table id="table1" >
+    <tr idRoomtype="<%= roomavailabilities[0].idRoomtype%>">
+        <th>Day</th>
+        <% arrtimeslotstext.forEach(text => { %>
+        <th><%= text %></th>
+        <% }); %>
+    </tr>
+
+    <% for (let i = 0; i < arrdays.length; i++) { %>
+    <tr>
+        <td><%= arrdays[i] %></td>
+        <%  for (let x = 0; x < numofslotsinaday; x++) { %>
+        <td> <% let currenttimeslot = (timeslots.filter((timeslot)=> timeslot.order == (x + i * numofslotsinaday))); %>
+            <% let roomavailability = (roomavailabilities.filter( (roomavailability) => roomavailability.idTimeslot == currenttimeslot[0].idTimeslot)); %>
+            <input id="<%= currenttimeslot[0].idTimeslot %>" type="text" value="<%= roomavailability[0].numOfAvailRooms %>">
+        </td>
+        <% }%>
+    </tr>
+    <%} %>
+
+</table>

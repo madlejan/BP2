@@ -1,0 +1,48 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<%- include('../includes/loggedin.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<H1>Rooms:</H1>
+<table id="table1">
+    <tr>
+        <th>Room Name</th>
+        <th>Roomtype</th>
+        <th>New Roomtype</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    <% rooms.forEach(room => { %>
+    <tr id=<%=room.idRoom%>>
+        <td><%if (room.name == null) { %>
+            <input type="text" value="<%- 'null' %>">
+            <% } else { %>
+            <input type="text" value="<%= room.name %>">
+            <% } %>
+        </td>
+        <td><%if (room.roomtype == null) { %>
+            <%- 'null' %>
+            <% } else { %>
+            <%= room.roomtype.name %>
+            <% } %>
+        </td>
+        <td>
+            <select name="select new roomtype">
+                <% if (room.idRoomtype == null) { %>
+                <option selected disabled>Choose new Roomtype</option>
+                <% } %>
+                <% roomtypes.forEach(roomtype => { %>
+                <option idRoomtype="<%= roomtype.idRoomtype %>" <% if (room.idRoomtype == roomtype.idRoomtype) { %> <%- 'selected' %> <% } %>><%= roomtype.name%></option>
+                <% }); %>
+            </select>
+        </td>
+        <td>
+            <button type="button" onclick="updateRoom('<%= room.idRoom %>',
+                 document.getElementById('<%=room.idRoom%>')
+                 )">Update</button>
+
+        </td>
+        <td><button type="button" onclick="deleteRoom('<%=room.idRoom%>')">&#x274C</button></td>
+    </tr>
+    <% }); %>
+</table>
+<%- include('../includes/end.ejs') %>

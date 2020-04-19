@@ -1,0 +1,16 @@
+<%- include('includes/head.ejs') %>
+</head>
+<%- include('includes/loggedin.ejs') %>
+<%- include('includes/navigation.ejs') %>
+<div class="login">
+    <H1>Login</H1>
+    <H3>Please login to proceed.</H3>
+    <div class="demo">Demo: name: admin, password: admin</div>
+    <form method='post' action='/login'>
+        <input type='text' name='name' placeholder='Name' required /> <br>
+        <input type='password' name='password' placeholder='Password' required /> <br>
+        <input type='submit' />
+        <br>
+    </form>
+</div>
+<%- include('includes/end.ejs') %>

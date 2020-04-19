@@ -1,0 +1,28 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<%- include('../includes/loggedin.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<H1>Add new Course</h1>
+<form method='post' action='/addcourse'>
+    <input type='text' name='name' placeholder='Name of new course' required /> <br>
+    <select class="inputSelect" id='user' name="idUser">
+        <option selected disabled>Choose user</option>
+        <% users.forEach(user => { %>
+        <option value="<%= user.idUser %>"><%= user.name%></option>
+        <% }); %>
+    </select><br>
+    <select class="inputSelect" id='roomtype' name="idRoomtype">
+        <option selected disabled>Choose roomtype</option>
+        <% roomtypes.forEach(roomtype => { %>
+        <option value="<%= roomtype.idRoomtype %>"><%= roomtype.name%></option>
+        <% }); %>
+    </select><br>
+    <select class="inputSelect" id='timetable' name="idTimetable">
+        <option selected disabled>Choose timetable</option>
+        <% timetables.forEach(timetable => { %>
+        <option value="<%= timetable.idTimetable %>"><%= timetable.name%></option>
+        <% }); %>
+    </select><br>
+    <input type='submit' value="add course" />
+</form>
+<%- include('../includes/end.ejs') %>

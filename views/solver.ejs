@@ -1,0 +1,15 @@
+<%- include('includes/head.ejs') %>
+</head>
+<%- include('includes/loggedin.ejs') %>
+<%- include('includes/navigation.ejs') %>
+<H1>Solver</H1>
+<H2>Run solver on timetable:</H2>
+<select id="timetableSelect" name="select timetable">
+        <% timetables.forEach(timetable => { %>
+        <option idTimetable="<%= timetable.idTimetable %>"><%= timetable.name%></option>
+        <% }); %>
+      </select> <br>
+      <button onclick="runSolver(document.getElementById('timetableSelect'))"> Run Solver
+      </button>
+<%- include('includes/end.ejs') %>
+    

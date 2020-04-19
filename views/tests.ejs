@@ -1,0 +1,14 @@
+<%- include('includes/head.ejs') %>
+</head>
+<%- include('includes/loggedin.ejs') %>
+<%- include('includes/navigation.ejs') %>
+<H1>TESTS</H1>
+<H2>Load simple Timetable test to database and restart server:</H2> <br>
+<select id="testSelect" name="select test">
+      <option selected idTest="1">Timetable Example</option>
+</select> <br>
+<button onclick="loadTestAndRestart(document.getElementById('testSelect'))"> Delete database, load simple test
+      and restart server.
+</button> <br>
+!!!These changes are irreversible!!!
+<%- include('includes/end.ejs') %>

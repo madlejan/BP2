@@ -1,0 +1,10 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<%- include('../includes/loggedin.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<H1>Add new Roomtype</h1>
+<form method='post' action='/addroomtype'>
+<input type='text' name='name' placeholder='Name of new roomtype' required/> <br>
+<input type='submit' value="add Roomtype"/> 
+    </form>
+    <%- include('../includes/end.ejs') %>

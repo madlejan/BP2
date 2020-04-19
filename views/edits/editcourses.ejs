@@ -1,0 +1,85 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<%- include('../includes/loggedin.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<H1>Courses:</H1>
+<table id="table1">
+    <tr>
+        <th>Course Name</th>
+        <th>User</th>
+        <th>Roomtype</th>
+        <th>Timetable</th>
+        <th>New User</th>
+        <th>New Roomtype</th>
+        <th>New Timetable</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    <% courses.forEach(course => { %>
+    <tr id="course<%= course.idCourse %>">
+        <td><%= course.name %></td>
+        <td><%if (course.user == null) { %>
+            <%- 'null' %>
+
+            <% } else { %>
+            <%= course.user.name %>
+            <% } %>
+        </td>
+        <td><%if (course.roomtype == null) { %>
+            <%- 'null' %>
+
+            <% } else { %>
+            <%= course.roomtype.name %>
+            <% } %>
+        </td>
+        <td><%if (course.timetable == null) { %>
+            <%- 'null' %>
+
+            <% } else { %>
+            <%= course.timetable.name %>
+            <% } %>
+        </td>
+
+        <td>
+            <select name="select new user">
+                <% if (course.idUser == null) { %>
+                <option selected disabled>Choose new User</option>
+                <% } %>
+                <% users.forEach(user => { %>
+                <option idUser="<%= user.idUser %>" <% if (course.idUser == user.idUser) { %> <%- 'selected' %> <% } %>>
+                    <%= user.name%></option>
+                <% }); %>
+            </select>
+        </td>
+        <td>
+            <select name="select new roomtype">
+                <% if (course.idRoomtype == null) { %>
+                <option selected disabled>Choose new Roomtype</option>
+                <% } %>
+                <% roomtypes.forEach(roomtype => { %>
+                <option idRoomtype="<%= roomtype.idRoomtype %>" <% if (course.idRoomtype == roomtype.idRoomtype) { %>
+                    <%- 'selected' %> <% } %>><%= roomtype.name%></option>
+                <% }); %>
+            </select>
+        </td>
+        <td>
+            <select name="select new timetable">
+                <% if (course.idTimetable == null) { %>
+                <option selected disabled>Choose new Timetable</option>
+                <% } %>
+                <% timetables.forEach(timetable => { %>
+                <option idTimetable="<%= timetable.idTimetable %>" <% if (course.idTimetable == timetable.idTimetable) { %> <%- 'selected' %> <% } %>><%= timetable.name%></option>
+                <% }); %>
+            </select>
+        </td>
+
+        <td>
+            <button roomtypeId='<%= course.idCourse %>' type="button" onclick="updateCourse('<%= course.idCourse %>', document.querySelector('#course<%= course.idCourse %>')
+                     )">Update </button>
+        </td>
+        <td><button roomtypeId='<%= course.idCourse %>' type="button"
+                onclick="deleteCourse('<%= course.idCourse %>')">&#x274C</button></td>
+    </tr>
+    <% }); %>
+</table>
+<%- include('../includes/end.ejs') %>

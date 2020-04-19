@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<%- include('../includes/loggedin.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<div class="addtimetable">
+    <H1>Create a new Timetable</h1>
+    <form method='post' action='/addtimetable' id="addtimetable">
+        <input type='text' name='name' placeholder='Name' required />
+        <div class="example">e.g. "Offices Timetable" (can be anything)</div> <br>
+        <input type='text' name='timestart' placeholder='Time start' required />
+        <div class="example">e.g. "06:05" (keep the format XX:XX)</div> <br>
+        <input type='text' name='timepause' placeholder='Lenght of pause' required />
+        <div class="example">e.g. "15" (in minutes)</div> <br>
+        <input type='text' name='timeslotduration' placeholder='Length of one Timeslot' required />
+        <div class="example">e.g. "60" (in minutess)</div> <br>
+        <select name="days" multiple form="addtimetable">
+            <option selected disabled>Choose Days of timetable</option>
+            <option value="MO">Monday</option>
+            <option value="TU">Tuesday</option>
+            <option value="WE">Wednesday</option>
+            <option value="TH">Thursday</option>
+            <option value="FR">Friday</option>
+            <option value="SA">Saturday</option>
+            <option value="SU">Sunday</option>
+        </select>
+        <div class="example">Hold ctrl + left click to select more days</div> <br>
+        <input type='text' name='numofslotsinaday' placeholder='Number of timeslots' required />
+        <div class="example">e.g. "6" (6 times a day)</div> <br>
+        <input type='submit' value="add timetable" />
+    </form>
+</div>
+<%- include('../includes/end.ejs') %>

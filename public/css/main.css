@@ -1,0 +1,145 @@
+/* Some parts of code used (or inspired by) and modified from https://stackoverflow.com/questions/953918/how-to-align-a-div-to-the-middle-horizontally-width-of-the-page*/
+
+body {
+    text-align: center;
+    background-color: #f7f7Fa;
+}
+
+h1{
+  font-weight: normal;
+}
+
+h3{
+  font-weight: normal;
+}
+
+.demo{
+  background-color: rgb(252, 209, 216);
+  padding: 5px 5px 5px 5px;
+  margin: 5px 20px 20px 20px;
+}
+
+.example{
+  background-color: rgb(252, 209, 216);
+  padding: 5px 5px 5px 5px;
+  margin: 0px 20px 0px 20px;
+}
+
+form select option {
+    text-indent: 55px;
+    padding: 8px 60px 8px 10px;
+    margin: 0px 5px 0px 5px;
+    border-radius: 6px;
+    border: 1px solid grey;
+    width: auto;
+    text-align: center;
+}
+
+.logged{
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: white;
+    background-color: DodgerBlue;
+    padding: 5px 5px 5px 5px;
+}
+
+.log-out-button{
+    position: absolute;
+    left: 20px;
+    top: 30px;
+    text-decoration: none;
+    background-color: DodgerBlue;
+    color: white;
+    font-family: "helvetica", Arial, Verdana, Sans-serif;
+    font-size: 15px;
+    text-align: center;
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    width: auto;
+}
+
+.logged a{
+    text-decoration: none;
+    color: white;
+}
+
+.login {
+    background-color: white;
+    margin: 0 auto;
+    text-align: center;
+    width: 350px;
+    height: 500px;
+    border-radius: 1px;
+    border: 1px solid lightgrey;
+}
+
+.addtimetable {
+    background-color: white;
+    margin: 0 auto;
+    text-align: center;
+    width: 350px;
+    height: 800px;
+    border-radius: 1px;
+    border: 1px solid lightgrey;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    padding: 2px;
+    margin: 2px;
+    width: 50px;
+}
+
+h2 {
+    font-family: "helvetica", Arial, Verdana, Sans-serif;
+    font-size: 21px;
+    text-align: center;
+}
+
+form input[type="text"],
+input[type="password"],
+input[type="email"] {
+    padding: 8px 128px 8px 10px;
+    margin: 5px 10px 10px 10px;
+    border-radius: 6px;
+    border: 1px solid grey;
+    width: auto;
+}
+
+form input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    padding: 8px 128px 8px 10px;
+    margin: 8px;
+    border-radius: 6px;
+    border: 1px solid DodgerBlue;
+    width: auto;
+}
+
+form input[type="submit"] {
+    background-color: DodgerBlue;
+    color: white;
+    font-family: "helvetica", Arial, Verdana, Sans-serif;
+    font-size: 21px;
+    text-align: center;
+    padding: 8px 60px;
+    margin: 5px 20px 20px 20px;
+    border-radius: 6px;
+    border: 1px solid grey;
+    width: auto;
+}
+
+form {
+    text-align: center;
+}
+
+.inputSelect {
+    padding: 8px 128px 8px 10px;
+    margin: 8px;
+    border-radius: 6px;
+    border: 1px solid grey;
+    width: 298px;
+}
